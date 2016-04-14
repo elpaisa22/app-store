@@ -33,7 +33,7 @@ System.register(['angular2/core', 'primeng/primeng'], function(exports_1, contex
                 MainComponent = __decorate([
                     core_1.Component({
                         selector: 'main',
-                        template: "\n        <h1>My First 2 App</h1>\n        <input type=\"text\" pInputText [(ngModel)]=\"text\"/>\n        {{text}}\n\t\t\t\t<hr/>\n\t\t\t\t<button pButton type=\"button\" (click)=\"showDialog()\" icon=\"fa-check\" iconPos=\"left\" label=\"Saludar\"></button>\n\n\t\t\t\t<p-dialog header=\"Title\" [(visible)]=\"display\" modal=\"modal\">\n\t\t\t\t    Hola {{text}}\n\t\t\t\t</p-dialog>\n    ",
+                        templateUrl: 'app/components/main/main.html',
                         directives: [primeng_1.InputText, primeng_2.Button, primeng_3.Dialog]
                     }), 
                     __metadata('design:paramtypes', [])

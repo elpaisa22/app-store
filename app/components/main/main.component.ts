@@ -7,17 +7,7 @@ import {Dialog}    from 'primeng/primeng';
 
 @Component({
 	selector: 'main',
-	template: `
-        <h1>My First 2 App</h1>
-        <input type="text" pInputText [(ngModel)]="text"/>
-        {{text}}
-				<hr/>
-				<button pButton type="button" (click)="showDialog()" icon="fa-check" iconPos="left" label="Saludar"></button>
-
-				<p-dialog header="Title" [(visible)]="display" modal="modal">
-				    Hola {{text}}
-				</p-dialog>
-    `,
+	templateUrl: 'app/components/main/main.html',
     directives: [InputText, Button, Dialog]
 })
 export class MainComponent {

@@ -1,0 +1,9 @@
+<h1>My First 2 App</h1>
+<input type="text" pInputText [(ngModel)]="text" placeholder="Ingrese su nombre" required="true"/>
+{{text}}
+<hr/>
+<button pButton type="button" (click)="showDialog()" icon="fa-check" iconPos="left" label="Saludar"></button>
+
+<p-dialog header="Bienvenido" [(visible)]="display" modal="modal">
+    Hola {{text}}
+</p-dialog>
