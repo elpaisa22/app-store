@@ -1,4 +1,4 @@
-System.register(['angular2/core', '@angular2-material/button/button', '@angular2-material/sidenav/sidenav', '@angular2-material/toolbar/toolbar', '@angular2-material/checkbox/checkbox', '@angular2-material/radio/radio', '@angular2-material/radio/radio_dispatcher', '@angular2-material/progress-circle/progress-circle', '@angular2-material/card/card', '@angular2-material/input/input', '@angular2-material/list/list', 'angular2/router'], function(exports_1, context_1) {
+System.register(['angular2/core', 'angular2/router'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,51 +10,37 @@ System.register(['angular2/core', '@angular2-material/button/button', '@angular2
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, button_1, sidenav_1, toolbar_1, checkbox_1, radio_1, radio_dispatcher_1, progress_circle_1, card_1, input_1, list_1, router_1;
+    var __param = (this && this.__param) || function (paramIndex, decorator) {
+        return function (target, key) { decorator(target, key, paramIndex); }
+    };
+    var core_1, router_1;
     var MainComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             },
-            function (button_1_1) {
-                button_1 = button_1_1;
-            },
-            function (sidenav_1_1) {
-                sidenav_1 = sidenav_1_1;
-            },
-            function (toolbar_1_1) {
-                toolbar_1 = toolbar_1_1;
-            },
-            function (checkbox_1_1) {
-                checkbox_1 = checkbox_1_1;
-            },
-            function (radio_1_1) {
-                radio_1 = radio_1_1;
-            },
-            function (radio_dispatcher_1_1) {
-                radio_dispatcher_1 = radio_dispatcher_1_1;
-            },
-            function (progress_circle_1_1) {
-                progress_circle_1 = progress_circle_1_1;
-            },
-            function (card_1_1) {
-                card_1 = card_1_1;
-            },
-            function (input_1_1) {
-                input_1 = input_1_1;
-            },
-            function (list_1_1) {
-                list_1 = list_1_1;
-            },
             function (router_1_1) {
                 router_1 = router_1_1;
             }],
         execute: function() {
             MainComponent = (function () {
-                function MainComponent() {
+                function MainComponent(elementRef) {
                     this.display = false;
+                    this.elementRef = elementRef;
                 }
+                MainComponent.prototype.ngAfterViewInit = function () {
+                    // Initialize collapse button
+                    jQuery(this.elementRef.nativeElement).find('.button-collapse').sideNav({
+                        //menuWidth: 300, // Default is 240
+                        //edge: 'left'// Choose the horizontal origin
+                        closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
+                    });
+                    // Initialize collapsible (uncomment the line below if you use the dropdown variation)
+                    /*
+                    jQuery(this.elementRef.nativeElement).find('.collapsible').collapsible();
+                    */
+                };
                 MainComponent.prototype.showDialog = function () {
                     this.display = true;
                 };
@@ -62,21 +48,10 @@ System.register(['angular2/core', '@angular2-material/button/button', '@angular2
                     core_1.Component({
                         selector: 'main',
                         templateUrl: 'app/components/main/main.html',
-                        providers: [radio_dispatcher_1.MdRadioDispatcher],
-                        directives: [
-                            button_1.MdButton,
-                            sidenav_1.MD_SIDENAV_DIRECTIVES,
-                            toolbar_1.MdToolbar,
-                            checkbox_1.MdCheckbox,
-                            radio_1.MdRadioButton,
-                            progress_circle_1.MdSpinner,
-                            card_1.MD_CARD_DIRECTIVES,
-                            input_1.MD_INPUT_DIRECTIVES,
-                            list_1.MD_LIST_DIRECTIVES,
-                            router_1.ROUTER_DIRECTIVES
-                        ]
-                    }), 
-                    __metadata('design:paramtypes', [])
+                        directives: [router_1.ROUTER_DIRECTIVES]
+                    }),
+                    __param(0, core_1.Inject(core_1.ElementRef)), 
+                    __metadata('design:paramtypes', [core_1.ElementRef])
                 ], MainComponent);
                 return MainComponent;
             }());

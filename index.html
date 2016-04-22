@@ -1,8 +1,10 @@
 <html>
 
   <head>
-    <title>Angular2 QuickStart</title>
+    <title>Store App</title>
 
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
     <!-- 1. Load libraries -->
     <script src="node_modules/es6-shim/es6-shim.min.js"></script>
@@ -12,8 +14,11 @@
     <script src="node_modules/angular2/bundles/angular2-polyfills.js"></script>
     <script src="node_modules/systemjs/dist/system.src.js"></script>
 
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
-    <link href="style/styles.css" rel="stylesheet"/>
+    <!--Import Google Icon Font-->
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Materialize -->
+    <link href="css/materialize.min.css" rel="stylesheet"></link>
 
     <!-- 2. Configure SystemJS -->
     <script>
@@ -26,8 +31,7 @@
                 }
             },
             map: {
-                'angular2': 'node_modules/angular2',
-                '@angular2-material': 'node_modules/@angular2-material',
+                'angular2': 'node_modules/angular2'
             },
         });
         System.import('app/boot').then(null, console.error.bind(console));
@@ -38,6 +42,9 @@
   </head>
   <!-- 3. Display the application -->
   <body>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="js/materialize.min.js"></script>
+
     <main>Cargando...</main>
   </body>
 </html>
