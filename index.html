@@ -3,12 +3,6 @@
   <head>
     <title>Angular2 QuickStart</title>
 
-    <!-- <link rel="stylesheet" type="text/css" href="node_modules/primeui/themes/delta/theme.css" /> -->
-    <link rel="stylesheet" type="text/css" href="node_modules/primeui/primeui-ng-all.min.css" />
-    <link rel="stylesheet" type="text/css" href="style/font-awesome/css/font-awesome.css" />
-    <link rel="stylesheet" type="text/css" href="style/styles.css" />
-    <link rel="stylesheet" type="text/css" href="themes/material/theme.css" />
-
 
     <!-- 1. Load libraries -->
     <script src="node_modules/es6-shim/es6-shim.min.js"></script>
@@ -17,19 +11,24 @@
 
     <script src="node_modules/angular2/bundles/angular2-polyfills.js"></script>
     <script src="node_modules/systemjs/dist/system.src.js"></script>
-    <script src="node_modules/primeui/primeui-ng-all.min.js"></script>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    <link href="style/styles.css" rel="stylesheet"/>
 
     <!-- 2. Configure SystemJS -->
     <script>
         System.config({
             defaultJSExtensions: true,
             packages: {
-                'app': {"defaultExtension": 'js'}
+                app: {
+                  format: 'register',
+                  defaultExtension: 'js'
+                }
             },
             map: {
                 'angular2': 'node_modules/angular2',
-                'primeng': 'node_modules/primeng'
-            }
+                '@angular2-material': 'node_modules/@angular2-material',
+            },
         });
         System.import('app/boot').then(null, console.error.bind(console));
     </script>

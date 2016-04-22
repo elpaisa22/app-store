@@ -1,9 +1,80 @@
-<h1>My First 2 App</h1>
-<input type="text" pInputText [(ngModel)]="text" placeholder="Ingrese su nombre" required="true"/>
-{{text}}
-<hr/>
-<button pButton type="button" (click)="showDialog()" icon="fa-check" iconPos="left" label="Saludar"></button>
+<md-sidenav-layout>
 
-<p-dialog header="Bienvenido" [(visible)]="display" modal="modal">
-    Hola {{text}}
-</p-dialog>
+  <!-- sidenav-->
+  <md-sidenav color="primary" #sidenav mode="side" class="app-sidenav">
+    <md-toolbar color="primary"></md-toolbar>
+    <md-nav-list>
+      <a md-list-item>Ventas</a>
+      <a md-list-item >Clientes</a>
+      <a md-list-item >Productos</a>
+      <a md-list-item >Compras</a>
+      <a md-list-item >Proveedores</a>
+    </md-nav-list>
+  </md-sidenav>
+
+  <!-- toolbar-->
+  <md-toolbar color="primary">
+    <i class="material-icons app-toolbar-menu" (click)="sidenav.toggle()">
+      menu
+    </i>
+    <span>Store</span>
+    <span class="app-toolbar-filler"></span>
+  </md-toolbar>
+
+  <!-- app-content -->
+  <div class="app-content">
+
+    <md-card>
+      <md-card-content>
+
+        <form style="width: 100%; max-width: 800px;">
+
+          <p>
+            <md-input placeholder="Empresa" disabled value="Google"></md-input>
+          </p>
+
+          <p>
+            <md-input placeholder="Nombre"></md-input>
+            <md-input placeholder="Apellido"></md-input>
+          </p>
+
+            <md-input placeholder="Calle" value="35"></md-input>
+            <p>
+            <md-input placeholder="Nro" value="721"></md-input>
+            <md-input placeholder="Dpto" value="3D"></md-input>
+          </p>
+
+          <p>
+            <md-input placeholder="Ciudad"></md-input>
+            <md-input placeholder="Provincia"></md-input>
+            <md-input #postalCode maxLength="5"
+                      placeholder="Código Postal"
+                      value="1900">
+              <md-hint align="end">{{postalCode.characterCount}} / 5</md-hint>
+            </md-input>
+          </p>
+
+          <p>
+            <md-input placeholder="Modelo">
+             <span md-prefix>
+               <i class="material-icons app-input-icon">motorcycle</i>
+             </span>
+           </md-input>
+          </p>
+
+        </form>
+
+      </md-card-content>
+    </md-card>
+
+
+
+    <md-card>
+      <button md-raised-button color="primary">Guardar</button>
+      <button md-raised-button>Cancelar</button>
+    </md-card>
+
+
+  </div>
+
+</md-sidenav-layout>
