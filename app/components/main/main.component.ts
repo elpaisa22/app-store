@@ -1,14 +1,22 @@
 import {Component, ElementRef, Inject, AfterViewInit} from 'angular2/core';
+import {Route, RouteConfig, ROUTER_DIRECTIVES } from 'angular2/router';
 
-import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
+import {DashboardComponent} from '../dashboard/dashboard.component';
+import {ClienteComponent} from '../cliente/cliente.component';
+import {ClientesComponent} from '../clientes/clientes.component';
 
 declare var jQuery:any;
 
 @Component({
-	selector: 'main',
+	selector: 'main-app',
 	templateUrl : 'app/components/main/main.html',
   directives: [ROUTER_DIRECTIVES]
 })
+@RouteConfig([
+	new Route({path: '/', name: 'Dashboard', component: DashboardComponent}),
+	new Route({path: 'cliente/:id', name: 'Cliente', component: ClienteComponent}),
+  new Route({path: 'clientes', name: 'Clientes', component: ClientesComponent})
+])
 export class MainComponent implements AfterViewInit {
     text: string;
 		display: boolean = false;
@@ -22,19 +30,10 @@ export class MainComponent implements AfterViewInit {
 	  ngAfterViewInit() {
 				// Initialize collapse button
 	      jQuery(this.elementRef.nativeElement).find('.button-collapse').sideNav({
-		      //menuWidth: 300, // Default is 240
-		      //edge: 'left'// Choose the horizontal origin
 		      closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
 		    	}
-			);
+				);
 
-				// Initialize collapsible (uncomment the line below if you use the dropdown variation)
-				/*
-				jQuery(this.elementRef.nativeElement).find('.collapsible').collapsible();
-				*/
+				jQuery(this.elementRef.nativeElement).find(".dropdown-button").dropdown();
 	  }
-
-    showDialog() {
-        this.display = true;
-    }
 }

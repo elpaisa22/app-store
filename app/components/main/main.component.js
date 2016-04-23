@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'angular2/router'], function(exports_1, context_1) {
+System.register(['angular2/core', 'angular2/router', '../dashboard/dashboard.component', '../cliente/cliente.component', '../clientes/clientes.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -13,7 +13,7 @@ System.register(['angular2/core', 'angular2/router'], function(exports_1, contex
     var __param = (this && this.__param) || function (paramIndex, decorator) {
         return function (target, key) { decorator(target, key, paramIndex); }
     };
-    var core_1, router_1;
+    var core_1, router_1, dashboard_component_1, cliente_component_1, clientes_component_1;
     var MainComponent;
     return {
         setters:[
@@ -22,6 +22,15 @@ System.register(['angular2/core', 'angular2/router'], function(exports_1, contex
             },
             function (router_1_1) {
                 router_1 = router_1_1;
+            },
+            function (dashboard_component_1_1) {
+                dashboard_component_1 = dashboard_component_1_1;
+            },
+            function (cliente_component_1_1) {
+                cliente_component_1 = cliente_component_1_1;
+            },
+            function (clientes_component_1_1) {
+                clientes_component_1 = clientes_component_1_1;
             }],
         execute: function() {
             MainComponent = (function () {
@@ -32,24 +41,21 @@ System.register(['angular2/core', 'angular2/router'], function(exports_1, contex
                 MainComponent.prototype.ngAfterViewInit = function () {
                     // Initialize collapse button
                     jQuery(this.elementRef.nativeElement).find('.button-collapse').sideNav({
-                        //menuWidth: 300, // Default is 240
-                        //edge: 'left'// Choose the horizontal origin
                         closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
                     });
-                    // Initialize collapsible (uncomment the line below if you use the dropdown variation)
-                    /*
-                    jQuery(this.elementRef.nativeElement).find('.collapsible').collapsible();
-                    */
-                };
-                MainComponent.prototype.showDialog = function () {
-                    this.display = true;
+                    jQuery(this.elementRef.nativeElement).find(".dropdown-button").dropdown();
                 };
                 MainComponent = __decorate([
                     core_1.Component({
-                        selector: 'main',
+                        selector: 'main-app',
                         templateUrl: 'app/components/main/main.html',
                         directives: [router_1.ROUTER_DIRECTIVES]
                     }),
+                    router_1.RouteConfig([
+                        new router_1.Route({ path: '/', name: 'Dashboard', component: dashboard_component_1.DashboardComponent }),
+                        new router_1.Route({ path: 'cliente/:id', name: 'Cliente', component: cliente_component_1.ClienteComponent }),
+                        new router_1.Route({ path: 'clientes', name: 'Clientes', component: clientes_component_1.ClientesComponent })
+                    ]),
                     __param(0, core_1.Inject(core_1.ElementRef)), 
                     __metadata('design:paramtypes', [core_1.ElementRef])
                 ], MainComponent);

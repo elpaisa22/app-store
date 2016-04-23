@@ -1,20 +1,25 @@
 
-
   <!-- navbar -->
   <nav>
     <div class="nav-wrapper blue" style="padding-left: 15px;">
-      <a href="#" class="brand-logo">Store App</a>
+      <a [routerLink]="['Dashboard']" class="brand-logo">ngSTORE</a>
       <a href="#" data-activates="mobile-nav" class="button-collapse"><i class="material-icons">menu</i></a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li><a href="#!">Ventas</a></li>
-        <li><a href="#!">Clientes</a></li>
+        <li><a [routerLink]="['Clientes']">Clientes</a></li>
         <li><a href="#!">Productos</a></li>
         <li><a href="#!">Compras</a></li>
         <li><a href="#!">Proveedores</a></li>
+        <li>
+            <a href="#!" class="dropdown-button" data-activates="dropdown-user">
+              <i class="material-icons">perm_identity</i>
+            </a>
+        </li>
       </ul>
       <ul class="side-nav" id="mobile-nav">
+        <li><a [routerLink]="['Dashboard']">Dashboard</a></li>
         <li><a href="#!">Ventas</a></li>
-        <li><a href="#!">Clientes</a></li>
+        <li><a [routerLink]="['Clientes']">Clientes</a></li>
         <li><a href="#!">Productos</a></li>
         <li><a href="#!">Compras</a></li>
         <li><a href="#!">Proveedores</a></li>
@@ -22,67 +27,11 @@
     </div>
   </nav>
 
+  <!-- Dropdown Structure -->
+  <ul id="dropdown-user" class="dropdown-content">
+    <li><a href="#!">Perfil</a></li>
+    <li><a href="#!">Salir</a></li>
+  </ul>
+
   <!-- app-content -->
-  <div class="app-content">
-
-    <div class="container">
-
-      <div class="row">
-        <div class="col s12">
-          <div class="card-panel">
-
-            <form class="col s12">
-              <div class="row">
-                <div class="input-field col s6">
-                  <input id="first_name" type="text" class="validate">
-                  <label for="first_name">Nombre</label>
-                </div>
-                <div class="input-field col s6">
-                  <input id="last_name" type="text" class="validate">
-                  <label for="last_name">Apellido</label>
-                </div>
-              </div>
-              <div class="row">
-                <div class="input-field col s12">
-                  <input disabled value="No soy editable" id="disabled" type="text" class="validate">
-                </div>
-              </div>
-              <div class="row">
-                <div class="input-field col s12">
-                  <input id="password" type="password" class="validate">
-                  <label for="password">Password</label>
-                </div>
-              </div>
-              <div class="row">
-                <div class="input-field col s12">
-                  <input id="email" type="email" class="validate">
-                  <label for="email">Email</label>
-                </div>
-              </div>
-            </form>
-
-
-            <button class="btn waves-effect waves-light light-blue accent-4" type="submit" name="action">
-              Guardar
-            </button>
-
-            <a class="btn waves-effect waves-light grey lighten-1">
-              Cancelar
-            </a>
-
-
-
-          </div>
-        </div>
-      </div>
-
-
-
-
-
-
-
-    </div>
-
-
-  </div>
+  <router-outlet></router-outlet>
