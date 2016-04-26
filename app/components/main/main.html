@@ -1,9 +1,9 @@
 
   <!-- navbar -->
   <nav>
-    <div class="nav-wrapper blue" style="padding-left: 15px;">
+    <div class="nav-wrapper" style="padding-left: 15px;">
       <a [routerLink]="['Dashboard']" class="brand-logo">ngStore</a>
-      <a href="#" data-activates="mobile-nav" class="button-collapse"><i class="material-icons">menu</i></a>
+      <a m-sidenav href="#" data-activates="mobile-nav" class="button-collapse"><i class="material-icons">menu</i></a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li><a href="#!">Ventas</a></li>
         <li><a [routerLink]="['Clientes']">Clientes</a></li>
@@ -11,7 +11,7 @@
         <li><a href="#!">Compras</a></li>
         <li><a href="#!">Proveedores</a></li>
         <li>
-            <a href="#!" class="dropdown-button" data-activates="dropdown-user">
+            <a m-dropdown href="#!" class="dropdown-button" data-activates="dropdown-user">
               <i class="material-icons">perm_identity</i>
             </a>
         </li>
