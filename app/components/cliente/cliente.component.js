@@ -24,6 +24,7 @@ System.register(['angular2/core', 'angular2/router'], function(exports_1, contex
             ClienteComponent = (function () {
                 function ClienteComponent(_router) {
                     this._router = _router;
+                    this.cliente = { nombre: "Juan Carlos", email: "juanca@gmail.com" };
                 }
                 ClienteComponent.prototype.irAlListado = function () {
                     this._router.navigate(['Clientes']);

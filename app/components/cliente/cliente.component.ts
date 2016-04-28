@@ -7,8 +7,9 @@ import {Router, ROUTER_DIRECTIVES } from 'angular2/router';
 })
 export class ClienteComponent{
 
-	constructor(private _router: Router){
+	cliente : Object = { nombre : "Juan Carlos", email : "juanca@gmail.com"}; 
 
+	constructor(private _router: Router){
 	}
 
 	irAlListado () {
