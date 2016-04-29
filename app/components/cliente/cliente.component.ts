@@ -7,7 +7,7 @@ import {Router, ROUTER_DIRECTIVES } from 'angular2/router';
 })
 export class ClienteComponent{
 
-	cliente : Object = { nombre : "Juan Carlos", email : "juanca@gmail.com"}; 
+	model : Object = { nombre : "Juan Carlos", email : "juanca@gmail.com"}; 
 
 	constructor(private _router: Router){
 	}

@@ -13,34 +13,29 @@
             <label for="icon_search">Buscar Cliente</label>
           </div>
 
-          <table>
+          <table class="highlight">
             <thead>
               <tr>
-                  <th data-field="id">Nombre</th>
-                  <th data-field="name">Apellido</th>
-                  <th data-field="price">Deuda</th>
+                  <th data-field="id">Id</th>
+                  <th data-field="nombre">Nombre</th>
+                  <th data-field="apellido">Apellido</th>
+                  <th data-field="email">E-Mail</th>
+                  <th data-field="telefono">Telefono</th>
+                  <th data-field="fechaNacimiento">Fec. Nacimiento</th>
               </tr>
             </thead>
 
             <tbody>
-              <tr>
-                <td>Alvin</td>
-                <td>Eclair</td>
-                <td>$0.87</td>
-              </tr>
-              <tr>
-                <td>Alan</td>
-                <td>Jellybean</td>
-                <td>$3.76</td>
-              </tr>
-              <tr>
-                <td>Jonathan</td>
-                <td>Lollipop</td>
-                <td>$7.00</td>
+              <tr *ngFor="#cliente of clientes">
+                  <td>{{cliente.id}}</td>
+                  <td>{{cliente.nombre}}</td>
+                  <td>{{cliente.apellido}}</td>
+                  <td>{{cliente.email}}</td>
+                  <td>{{cliente.telefono}}</td>
+                  <td>{{cliente.fechaNacimiento}}</td>
               </tr>
             </tbody>
           </table>
-
 
           <ul class="pagination center">
             <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
