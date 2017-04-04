@@ -5,6 +5,8 @@ import {Observable} from 'rxjs/Rx';
 import {Cliente} from '../../models/cliente.model';
 import {ClienteService} from '../../services/cliente.service';
 
+import {PaginatorComponent} from '../_shared/paginator/paginator.component';
+
 @Component({
   selector: 'app-clientes',
   templateUrl: './clientes.component.html',
@@ -13,12 +15,29 @@ import {ClienteService} from '../../services/cliente.service';
 })
 export class ClientesComponent implements OnInit {
 
-  clientes: Observable<Cliente[]>;
+  clientes: Cliente[];
+
+  totalPages = 0;
+  page:number = 0;
+  size:number = 5;
 
   constructor(public http: Http, private _clienteService: ClienteService) { }
 
   ngOnInit() {
-    this.clientes = this._clienteService.getAll();
+    this.reloadData();
+  }
+
+  onPageChange($event){
+		this.page = $event.value;
+    this.reloadData();
+	}
+
+  reloadData() {
+    this._clienteService.getAll(this.page, this.size).subscribe( result => {
+      this.clientes = result.content;
+      this.totalPages = result.totalPages;
+      this.page = result.number;
+    });
   }
 
   deleteInfo(id){
@@ -31,7 +50,7 @@ export class ClientesComponent implements OnInit {
               else {
                   alert('Error al eliminar');
               }
-              this.clientes = this._clienteService.getAll();
+              this.reloadData();
             }
         );
       }

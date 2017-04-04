@@ -27,7 +27,7 @@
             </thead>
 
             <tbody>
-              <tr *ngFor="let cliente of clientes | async">
+              <tr *ngFor="let cliente of clientes">
                   <td>{{cliente.id}}</td>
                   <td>{{cliente.nombre}}</td>
                   <td>{{cliente.apellido}}</td>
@@ -42,15 +42,11 @@
             </tbody>
           </table>
 
-          <ul class="pagination center">
-            <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
-            <li class="active"><a href="#!">1</a></li>
-            <li class="waves-effect"><a href="#!">2</a></li>
-            <li class="waves-effect"><a href="#!">3</a></li>
-            <li class="waves-effect"><a href="#!">4</a></li>
-            <li class="waves-effect"><a href="#!">5</a></li>
-            <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
-          </ul>
+          <paginator [page]="page"
+                     [totalPages]="totalPages"
+                     (pageChange)="onPageChange($event);">
+          </paginator>
+
         </div>
       </div>
 

@@ -1,17 +1,19 @@
 import {Injectable} from '@angular/core';
-import {Cliente} from '../models/cliente.model';
 import { Http, Response, Request, RequestMethod, Headers, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/map';
 import {Observable} from 'rxjs/Rx';
+
+import {Result} from '../models/result.model';
+import {Cliente} from '../models/cliente.model';
 
 @Injectable()
 export class ClienteService {
 
   constructor(public http: Http) { }
 
-  getAll() : Observable<Cliente[]> {
-    return this.http.get('http://localhost:8080/cliente')
-                  .map(response => <Cliente[]>response.json());
+  getAll(page:number, size:number) : Observable<Result> {
+    return this.http.get('http://localhost:8080/cliente?page='+page+'&size='+size)
+                    .map(response => <Result>response.json());
   }
 
   getById(id) {

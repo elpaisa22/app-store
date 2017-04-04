@@ -10,6 +10,7 @@ import { MainComponent } from './components/main/main.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ClientesComponent } from './components/clientes/clientes.component';
 import { ClienteComponent } from './components/cliente/cliente.component';
+import { PaginatorComponent } from './components/_shared/paginator/paginator.component';
 
 const appRoutes: Routes = [
   { path: '',  component: DashboardComponent },
@@ -22,10 +23,11 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
+    PaginatorComponent,
     MainComponent,
     DashboardComponent,
     ClientesComponent,
-    ClienteComponent
+    ClienteComponent 
   ],
   imports: [
     BrowserModule,
