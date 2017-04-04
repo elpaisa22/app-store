@@ -1,0 +1,61 @@
+
+
+<div class="container">
+
+  <div class="row">
+    <div class="col s12">
+
+      <div class="card-panel">
+        <div class="card-content">
+          <span class="card-title"><h5>Productos</h5></span>
+          <div class="input-field right">
+            <input id="icon_search" type="text" class="validate">
+            <label for="icon_search">Buscar Producto</label>
+          </div>
+
+          <table class="highlight">
+            <thead>
+              <tr>
+                  <th data-field="id">Id</th>
+                  <th data-field="nombre">Codigo</th>
+                  <th data-field="apellido">Descripcion</th>
+                  <th data-field="email">Precio</th>
+                  <th data-field="telefono">Stock</th>
+                  <th>Acciones</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr *ngFor="let producto of productos">
+                  <td>{{producto.id}}</td>
+                  <td>{{producto.codigo}}</td>
+                  <td>{{producto.descripcion}}</td>
+                  <td>{{producto.precio}}</td>
+                  <td>{{producto.stock}}</td>
+                  <td>
+                    <a (click)="deleteInfo(producto.id)" class="btn-floating waves-effect waves-light"><i class="large material-icons">delete</i></a>
+                    <a [routerLink]="['/producto', producto.id]" class="btn-floating waves-effect waves-light"><i class="large material-icons">mode_edit</i></a>
+                  </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <paginator [page]="page"
+                     [totalPages]="totalPages"
+                     (pageChange)="onPageChange($event);">
+          </paginator>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+
+<div class="fixed-action-btn" style="bottom: 60px; right: 24px;">
+  <a class="btn-floating btn-large" [routerLink]="['/producto/add']">
+    <i class="large material-icons">add</i>
+  </a>
+</div>

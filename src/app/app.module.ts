@@ -6,17 +6,23 @@ import { RouterModule, Routes } from '@angular/router';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
+import { PaginatorComponent } from './components/_shared/paginator/paginator.component';
+
 import { MainComponent } from './components/main/main.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ClientesComponent } from './components/clientes/clientes.component';
 import { ClienteComponent } from './components/cliente/cliente.component';
-import { PaginatorComponent } from './components/_shared/paginator/paginator.component';
+import { ProductosComponent } from './components/productos/productos.component';
+import { ProductoComponent } from './components/producto/producto.component';
 
 const appRoutes: Routes = [
   { path: '',  component: DashboardComponent },
   { path: 'clientes',  component: ClientesComponent },
   { path: 'cliente/add', component: ClienteComponent },
-  { path: 'cliente/:id', component: ClienteComponent }
+  { path: 'cliente/:id', component: ClienteComponent },
+  { path: 'productos',  component: ProductosComponent },
+  { path: 'producto/add', component: ProductoComponent },
+  { path: 'producto/:id', component: ProductoComponent }
 ];
 
 
@@ -27,7 +33,9 @@ const appRoutes: Routes = [
     MainComponent,
     DashboardComponent,
     ClientesComponent,
-    ClienteComponent 
+    ClienteComponent,
+    ProductosComponent,
+    ProductoComponent
   ],
   imports: [
     BrowserModule,
