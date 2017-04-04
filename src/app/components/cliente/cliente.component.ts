@@ -35,22 +35,6 @@ export class ClienteComponent implements OnInit {
   }
 
   submitForm(clienteForm: Cliente): void{
-    /*
-    console.log('Form Data Request: ');
-    console.log(this.clienteForm);
-    console.log(this.infoId);
-    this._clienteService.update(this.clienteForm).subscribe(
-          (res: Response) => {
-            if (res) {
-                console.log('Success! Element updated');
-            }
-            else {
-                alert('Error al guardar');
-            }
-            this._router.navigate(['./clientes']);
-          }
-      );
-      */
       console.log('Form Data Request: ');
       console.log(clienteForm);
 

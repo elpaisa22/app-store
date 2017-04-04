@@ -41,7 +41,7 @@ export class ClientesComponent implements OnInit {
   }
 
   deleteInfo(id){
-      if (confirm('Are you sure you want to delete info ' + id)) {
+      if (confirm('¿Está seguro que desea eliminar el elemento ' + id + '?')) {
         this._clienteService.delete(id).subscribe(
             (res: Response) => {
               if (res) {

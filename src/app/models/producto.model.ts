@@ -1,3 +1,5 @@
+import {Categoria} from './categoria.model';
+
 export class Producto {
   id: number;
   codigo: string;
@@ -6,4 +8,5 @@ export class Producto {
   pie: string;
   precio: number;
   stock: number;
+  categoria: Categoria;
 }

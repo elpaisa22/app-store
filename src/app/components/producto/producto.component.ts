@@ -83,7 +83,13 @@ export class ProductoComponent implements OnInit {
            'detalles' : '',
            'pie' : '',
            'precio' : '',
-           'stock' : ''
+           'stock' : '',
+           'categoria' : '',
+           'imagen1' : '',
+           'imagen2' : '',
+           'imagenDetalle1' : '',
+           'imagenDetalle2' : '',
+           'imagenDetalle3' : ''
         });
       });
   }
